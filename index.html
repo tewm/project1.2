@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Tour Map of London, England</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-compass/dist/leaflet-compass.css" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>Walking Tour Map of London, England</h1>
+    <div id="map"></div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-compass/dist/leaflet-compass.min.js"></script>
+    <script src="londonmap.js"></script> <!-- GeoJSON & map setup -->
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.5074, -0.1278], 13); // Centered around London, England
+        
+        // Add OpenStreetMap basemap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add Compass Control
+        var compass = L.control.compass({ position: "top-left" }).addTo(map);
+
+        //Add Scale Control
+        var scale = L.control.scale({ position: "bottomright" }).addTo(map);
+
+        // Add Legend Control
+        var legend = L.control({ position: "bottom-right" });
+
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create("div", "legend");
+            div.innerHTML += "<b>Legend</b><br>";
+            div.innerHTML += "<i style='background:blue'></i> Walking Route<br>";
+            div.innerHTML += "<i style='background:red'></i> Landmarks<br>";
+            return div;
+        };
+
+        legend.addTo(map);
+    </script> 
+</body>
+</html>
+

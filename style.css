@@ -1,0 +1,19 @@
+/* Ensure the map is visible */
+#map {
+    height: 600px; 
+    width: 100%;
+    border: 2px solid black; /* Just to check if it's working */
+}
+
+/* Style for sidebar (if you have one) */
+#tour-list {
+    list-style: none;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/* Optional: Customize popups */
+.leaflet-popup-content {
+    font-size: 14px;
+    color: darkblue;
+}
