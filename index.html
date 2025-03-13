@@ -11,14 +11,12 @@
 </head>
 <body>
     <h1>Walking Tour Map of London, England</h1>
-    <div id="map"></div>
+    <div id="tour list"></div>
     
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-compass/dist/leaflet-compass.min.js"></script>
-    <script src="londonmap.js"></script> <!-- GeoJSON & map setup -->
     <script>
         // Initialize the map
         var map = L.map('map').setView([51.5074, -0.1278], 13); // Centered around London, England
+
         
         // Add OpenStreetMap basemap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,9 +41,10 @@
         };
 
         legend.addTo(map);
-
     </script> 
-
+     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-compass/dist/leaflet-compass.min.js"></script>
+    <script src="londonmap.js"></script> <!-- GeoJSON & map setup -->
 </body>
 </html>
 
