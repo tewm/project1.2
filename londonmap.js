@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }).addTo(map);
 
     // Add Compass Control
-    L.control.compass({ position: "top-left" }).addTo(map);
+    L.control.compass({ position: "topleft" }).addTo(map);
 
     // Add Scale Control
-    L.control.scale({ position: "bottom-right" }).addTo(map);
+    L.control.scale({ position: "bottomright" }).addTo(map);
 
     // Add Legend Control
-    const legend = L.control({ position: "bottom-right" });
+    const legend = L.control({ position: "bottomright" });
 
     function createLegend(map) {
         const div = L.DomUtil.create("div", "legend");
