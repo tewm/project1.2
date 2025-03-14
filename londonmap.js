@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize the map
-    var map = L.map('map').setView([51.5074, -0.1278], 13); // Centered around London, England
+    const map = L.map('map').setView([51.5074, -0.1278], 13); // Centered around London, England
 
     // Add OpenStreetMap basemap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
     L.control.scale({ position: "bottom-right" }).addTo(map);
 
     // Add Legend Control
-    var legend = L.control({ position: "bottom-right" });
+    const legend = L.control({ position: "bottom-right" });
 
     function createLegend(map) {
-        var div = L.DomUtil.create("div", "legend");
+        const div = L.DomUtil.create("div", "legend");
         div.innerHTML += "<b>Legend</b><br>";
         div.innerHTML += "<i style='background:blue'></i> Walking Route<br>";
         div.innerHTML += "<i style='background:red'></i> Landmarks<br>";
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     legend.addTo(map);
 
     // Example landmarks (markers with popups)
-    var landmarks = [
+    const landmarks = [
         { name: "Big Ben", coords: [51.5007, -0.1246], description: "Renowned clock tower in London." },
         { name: "Tower of London", coords: [51.5081, -0.0759], description: "Historic castle and former prison." },
         { name: "Buckingham Palace", coords: [51.5014, -0.1419], description: "The official residence of the British monarch." },
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
     // Walking route (Polyline)
-    var route = L.polyline([
+    const route = L.polyline([
         [51.5007, -0.1246], // Big Ben
         [51.5014, -0.1419], // Buckingham Palace
         [51.5033, -0.1195], // London Eye
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     route.addTo(map);
 
     // Toggle route visibility
-    var routeVisible = true;
+    let routeVisible = true;
     document.getElementById("toggle-route").addEventListener("click", function() {
         if (routeVisible) {
             map.removeLayer(route);
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Add landmarks to the sidebar list
-    var tourList = document.getElementById("tour-list");
+    const tourList = document.getElementById("tour-list");
     if (tourList) {
         landmarks.forEach(function(landmark) {
-            var listItem = document.createElement("li");
+            const listItem = document.createElement("li");
             listItem.innerHTML = `<a href="#" onclick="zoomToLandmark(${landmark.coords[0]}, ${landmark.coords[1]})">${landmark.name}</a>`;
             tourList.appendChild(listItem);
         });
@@ -95,5 +95,4 @@ document.addEventListener("DOMContentLoaded", function() {
     function zoomToLandmark(lat, lng) {
         map.setView([lat, lng], 15); // Zoom in to the selected landmark
     }
-
 });
