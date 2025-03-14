@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Load GeoJSON data
-    fetch('path/to/london-boroughs_1179.geojson') // Update with correct path
+    fetch('https://raw.githubusercontent.com/tewm/project1.2/main/london-boroughs_1179.geojson')
         .then(response => response.json())
         .then(data => {
             L.geoJSON(data, {
