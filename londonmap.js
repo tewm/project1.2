@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
         landmarks.forEach(function(landmark) {
             const listItem = document.createElement("li");
             listItem.innerHTML = `<a href="#" onclick="zoomToLandmark(${landmark.coords[0]}, ${landmark.coords[1]})">${landmark.name}</a>`;
-            tourList.appendChild(listItem);
+            tour-list.appendChild(listItem);
         });
     } else {
         console.error('tour-list element not found!');
